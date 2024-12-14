@@ -22,20 +22,14 @@ public class Main {
     }
 
     static void task3(int year) {
-        boolean flag = false;
-        if (year > 1584) {
-            if (year % 400 == 0) {
-                flag = true;
-            }
-            if (year % 4 == 0) {
-                if (year % 100 != 0) {
-                    flag = true;
-                }
-            }
+
+        boolean flag = (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0));
+        if (year < 1584) {
+            System.out.println("Год должен быть больше 1584!");
         }
-        //Alternative solution
-        //boolean flag = year > 1584 && (year % 4 == 0 || (year % 100 != 0 && year % 400 == 0));
-        System.out.println(year + " год " + (flag ? "" : "не ") + "является високосным");
+        else {
+            System.out.println(year + " год " + (flag ? "" : "не ") + "является високосным");
+        }
     }
 
     static void task4(int deliveryDistance) {
